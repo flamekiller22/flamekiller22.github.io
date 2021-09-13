@@ -84,7 +84,8 @@
                 const stuff = links.join('\n\n')
 
                 b.innerText = stuff
-                if (response.ok){
+                if (response.ok) {
+                    console.log('flamekiller')
                     document.querySelector('aside').style.opacity = '1'
                 }
                 await navigator.clipboard.writeText(stuff)
