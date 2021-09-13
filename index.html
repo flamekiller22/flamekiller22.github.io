@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Imgur API</title>
+    </head>
+    <body style="height:100%;background: hsl(0 0% 10%); margin: 0; padding: 0; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center;">
+        <div style="display: flex; flex-direction: column; min-height: 169px; max-width: 169px; justify-content: space-evenly; align-items: center;">
+            <input style="padding: 0.5em; font-size:1.1em; z-index: 2;text-align: center;" id="a" type="text" placeholder="Album ID">
+            <input style="padding: 0.5em; font-size:1.1em;text-align: center;" id="c" type="text" placeholder="Client ID">
+            <button style="background: hsl(200.42069 69% 69%); padding: 0.2em 0.69em;font-size:1.69em;">
+                Get
+            </button>
+        </div>
+        <aside style="opacity: 0; max-height: 50px; max-width: 500px; background: lightgreen; text-align: center; padding: 0.5em; font-size:1.1em;color: hsl(0 0% 4.2%)">
+            All Tags have been copied to clipboard!
+        </aside>
+        <section style="max-height: 500px; max-width: 500px; overflow-y: scroll;color: hsl(0 0% 80%); background: hsl(0 0% 16.9%)"></section>
+        <script type="text/javascript">
+            const a = document.querySelector('#a')
+            const b = document.querySelector('section')
+            const c = document.querySelector('#c')
+            const d = document.querySelector('#copy')
+
+            const btn = document.querySelector('button')
+            btn.addEventListener('click', flamekiller)
+
+
+            async function flamekiller() {
+                const albumHash = a.value.trim()
+                const clientID = c.value.trim()
+                if (albumHash === '' || clientID === '') {
+                    alert('Empty Fields')
+                    return
+                }
+
+                const url = `https://api.imgur.com/3/album/${albumHash}`
+
+                const response = await fetch(url, {
+                    headers: {
+                        Authorization: `Client-ID ${clientID}`
+                    }
+                })
+
+                if (!response.ok) {
+                    alert('SMTHN WENT WRONG')
+                    console.log(response)
+                    b.innerText += response.status +"\n"
+                    b.innerText += response.statusText
+                    return
+                }
+
+                const data = await response.json()
+                const images = data.data.images
+
+                const links = []
+
+                for (img of images) {
+                    links.push(`<img style="padding-bottom: 15px;" src="${img.link}">`)
+                }
+
+                const stuff = links.join('\n\n')
+
+                b.innerText = stuff
+                document.querySelector('aside').style.opacity = '1'
+
+                await navigator.clipboard.writeText(stuff)
+            }
+        </script>
+    </body>
+</html>
