@@ -33,8 +33,12 @@
             }
             /* Up */
             ::-webkit-scrollbar-button:single-button:vertical:decrement {
-              border-width: 0 8px 8px 8px;
-              border-color: transparent transparent #555555 transparent;
+                width: 0; 
+                height: 0; 
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+  
+                border-bottom: 5px solid black;
             }
 
             ::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
