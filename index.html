@@ -3,6 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:site_name" content="Imgur API">
+        <meta property="og:title" content="Imgur API">
+        <meta property="og:url" content="https://flamekiller22.github.io/">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="A barebones website made by flamkiller for getting the image links of all the images inside an album in imgur.">
+        <meta property="og:image" content="https://pbs.twimg.com/profile_images/1400397701611593729/ldcn8Ztx.jpg">
+        <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/1400397701611593729/ldcn8Ztx.jpg">
         <title>Imgur API</title>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap');
@@ -84,11 +91,10 @@
                 const stuff = links.join('\n\n')
 
                 b.innerText = stuff
-                if (response.ok) {
-                    console.log('flamekiller')
+                if (response.ok) {                    
                     document.querySelector('aside').style.opacity = '1'
-                }
-                await navigator.clipboard.writeText(stuff)
+                    await navigator.clipboard.writeText(stuff)
+                }                
             }
         </script>
     </body>
