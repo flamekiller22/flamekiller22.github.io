@@ -10,4 +10,5 @@ The next thing we need is the Client ID which is used as authentication for the 
 To get your client ID you can go to this [link](https://api.imgur.com/oauth2/addclient) and register your app there.
 While registering your app you can choose any of the options provided, however if you are creating the app only to use it for this repo then I reccomend you go with this:
 ![Image](https://i.imgur.com/sMWueBa.png)
+
 After this enter your email id and that's it.
