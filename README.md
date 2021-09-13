@@ -13,7 +13,7 @@ The process for obtainig/finding the above mentioned requirements has been writt
 
 ### Imgur Client ID
 The Client ID is used as authentication for the Imgur API.
-To get your client ID you can go to this [link](https://api.imgur.com/oauth2/addclient) and register your app there.
+To get your client ID you can go to this <a href="https://api.imgur.com/oauth2/addclient" target="_blank">link</a> and register your app there.
 
 **Note:** If you have a Client ID but have forgotten it or lost it you can find it [here](https://imgur.com/account/settings/apps).
 
