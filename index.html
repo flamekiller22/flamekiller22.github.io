@@ -42,9 +42,9 @@
                 const url = `https://api.imgur.com/3/album/${albumHash}`
 
                 const response = await fetch(url, {
-//                     headers: {
-//                         Authorization: `Client-ID 123`
-//                     }
+                    headers: {
+                        Authorization: `Client-ID 123`
+                    }
                 })
 
                 if (!response.ok) {
