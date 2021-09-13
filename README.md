@@ -2,7 +2,7 @@
 
 This project was made for the sole purpose of getting img tags that can be used in html to show the images pesent in an imgur album. If you wish to use this repo you will need an imgur account. Don't worry it's completely free.
 
-<u>**Note:**</u> By default this repo will return the img tags with a `padding-bottom: 15px;`. This will create a padding, or to better understand, a gap of 15 pixels between the image and anything that is present at the bottom of the image.
+**Note:** By default this repo will return the img tags with a `padding-bottom: 15px;`. This will create a padding, or to better understand, a gap of 15 pixels between the image and anything that is present at the bottom of the image.
 
 ## How to use it
 To use this service you need:
@@ -19,12 +19,12 @@ To get your client ID you can go to this [link](https://api.imgur.com/oauth2/add
 
 While registering your app you can choose any of the options provided, however if you are creating the app only to use it for this repo then I reccomend you go with this:
 
-![Image](https://i.imgur.com/sMWueBa.png)
+![App Registration](https://i.imgur.com/sMWueBa.png)
 
 After this enter your email id and that's it.
 After clicking the submit button you will be redirected to a page that looks something like this:
 
-![Image](https://i.imgur.com/ag7dSHe.png)
+![Client ID and Client Secret](https://i.imgur.com/ag7dSHe.png)
 
 The Client ID provided there will be your Client ID. In this case we do not require the Client Secret.
 Also don't try using the Client ID in the image provided, I have already deleted them.
