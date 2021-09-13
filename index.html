@@ -48,6 +48,7 @@
 
 
             async function flamekiller() {
+                b.innerText = ''
                 const albumHash = a.value.trim()
                 const clientID = c.value.trim()
                 if (albumHash === '' || clientID === '') {
@@ -64,7 +65,7 @@
                 })
 
                 if (!response.ok) {
-                    alert('SMTHN WENT WRONG')
+                    alert('Something went wrong.')
                     console.log(response)
                     b.innerText += response.status +"\n"
                     b.innerText += response.statusText
