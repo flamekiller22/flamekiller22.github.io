@@ -84,8 +84,9 @@
                 const stuff = links.join('\n\n')
 
                 b.innerText = stuff
-                document.querySelector('aside').style.opacity = '1'
-
+                if (response.ok){
+                    document.querySelector('aside').style.opacity = '1'
+                }
                 await navigator.clipboard.writeText(stuff)
             }
         </script>
