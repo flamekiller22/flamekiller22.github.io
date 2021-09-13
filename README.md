@@ -5,7 +5,7 @@ This project was made for the sole purpose of getting img tags that can be used 
 **Note:** By default this repo will return the img tags with a `padding-bottom: 15px;`.
 
 ## How to use it
-The link for an imgur album will be something like this: https://imgur.com/a/bg7wPeB or https://imgur.com/gallery/bg7wPeB
+The link for an imgur album will be something like this: `https://imgur.com/a/bg7wPeB` or `https://imgur.com/gallery/bg7wPeB`.
 From this link copy the part that is after `imgur.com/a/` or `imgur.com/gallery/`, that is `bg7wPeB`. This is the **Album ID**.
 
 The next thing we need is the Client ID which is used as authentication for the Imgur API.
