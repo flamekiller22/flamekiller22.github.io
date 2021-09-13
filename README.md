@@ -2,7 +2,7 @@
 
 This project was made for the sole purpose of getting img tags that can be used in html to show the images pesent in an imgur album. If you wish to use this repo you will need an imgur account. Don't worry it's completely free.
 
-**Note:** By default this repo will return the img tags with a `padding-bottom: 15px;`.
+**Note:** By default this repo will return the img tags with a `padding-bottom: 15px;`. This will create a padding, or to better understand, a gap of 15 pixels between the image and anything that is present at the bottom of the image.
 
 ## How to use it
 The link for an imgur album will be something like this: `https://imgur.com/a/bg7wPeB` or `https://imgur.com/gallery/bg7wPeB`.
