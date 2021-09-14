@@ -116,11 +116,9 @@
                 const stuff = links.join('\n\n')
 
                 b.innerText = stuff
-                if (response.ok) {                                        
-                    if (document.querySelector('#clip').checked) {
-                        document.querySelector('aside').style.opacity = '1'
-                        await navigator.clipboard.writeText(stuff)
-                    }
+                if (response.ok && document.querySelector('#clip').checked) {                                                            
+                    document.querySelector('aside').style.opacity = '1'
+                    await navigator.clipboard.writeText(stuff)                    
                 }                
             }
         </script>
