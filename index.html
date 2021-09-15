@@ -59,6 +59,7 @@
             const c = document.querySelector('#c')
             const d = document.querySelector('#copy')
             const e = document.querySelector('#clip')
+            const f = document.querySelector('aside')
             
             if (localStorage.getItem('clientID')) {
                 c.value = localStorage.getItem('clientID')
@@ -72,6 +73,7 @@
 
             async function flamekiller() {
                 b.innerText = ''
+                f.style.opacity = '0'
                 const albumHash = a.value.trim()
                 const clientID = c.value.trim()
                 if (albumHash === '' || clientID === '') {
@@ -121,7 +123,7 @@
                 console.log('Response ok: ', response.ok)
                 console.log(e.checked && response.ok)
                 if ((!e.checked) && response.ok) {                                                            
-                    document.querySelector('aside').style.opacity = '1'
+                    f.style.opacity = '1'
                     await navigator.clipboard.writeText(stuff)                    
                 }                
             }
