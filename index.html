@@ -117,6 +117,9 @@
                 const stuff = links.join('\n\n')
 
                 b.innerText = stuff
+                console.log('Checkbox status: '+e.checked)
+                console.log('Response ok: ', response.ok)
+                console.log(e.checked && response.ok)
                 if (e.checked && response.ok) {                                                            
                     document.querySelector('aside').style.opacity = '1'
                     await navigator.clipboard.writeText(stuff)                    
