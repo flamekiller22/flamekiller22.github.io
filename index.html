@@ -58,6 +58,7 @@
             const b = document.querySelector('section')
             const c = document.querySelector('#c')
             const d = document.querySelector('#copy')
+            const e = document.querySelector('#clip')
             
             if (localStorage.getItem('clientID')) {
                 c.value = localStorage.getItem('clientID')
@@ -116,7 +117,7 @@
                 const stuff = links.join('\n\n')
 
                 b.innerText = stuff
-                if (response.ok && document.querySelector('#clip').checked) {                                                            
+                if (response.ok && e.checked) {                                                            
                     document.querySelector('aside').style.opacity = '1'
                     await navigator.clipboard.writeText(stuff)                    
                 }                
