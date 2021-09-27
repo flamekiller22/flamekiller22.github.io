@@ -25,7 +25,7 @@ After clicking the submit button you will be redirected to a page that looks som
 ![Client ID and Client Secret](https://i.imgur.com/ag7dSHe.png)
 
 The Client ID provided there will be your Client ID. In this case we do not require the Client Secret.
-Also don't try using the Client ID in the image provided, I have already deleted them.
+Also don't try using the Client ID in the image provided, I have already deactivated it.
 
 
 ### Imgur Album ID
