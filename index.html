@@ -105,11 +105,11 @@
                 console.log('Checkbox value:' + document.querySelector('#padding').checked)
                 if (document.querySelector('#padding').checked){
                     for (img of images) {
-                        links.push(`<img src="${img.link}" style="width: ${img.width}px; height: ${img.height}px">`)
+                        links.push(`<img src="${img.link}" width= "${img.width}" height= "${img.height}" class= "alignnone size-full">`)
                     }
                 } else {
                     for (img of images) {
-                        links.push(`<img style="padding-bottom: 15px;" src="${img.link}" style="width: ${img.width}px; height: ${img.height}px">`)
+                        links.push(`<img style="padding-bottom: 15px;" src="${img.link}" width= "${img.width}" height= "${img.height}" class= "alignnone size-full">`)
                     }
                 }
                 
