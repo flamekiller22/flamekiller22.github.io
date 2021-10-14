@@ -105,11 +105,11 @@
                 console.log('Checkbox value:' + document.querySelector('#padding').checked)
                 if (document.querySelector('#padding').checked){
                     for (img of images) {
-                        links.push(`<img src="${img.link}">`)
+                        links.push(`<img src="${img.link}" style="width: ${img.width}px; height: ${img.height}px">`)
                     }
                 } else {
                     for (img of images) {
-                        links.push(`<img style="padding-bottom: 15px;" src="${img.link}">`)
+                        links.push(`<img style="padding-bottom: 15px;" src="${img.link}" style="width: ${img.width}px; height: ${img.height}px">`)
                     }
                 }
                 
@@ -119,9 +119,6 @@
                 const stuff = links.join('\n\n')
 
                 b.innerText = stuff
-//                 console.log('Checkbox status: '+e.checked)
-//                 console.log('Response ok: ', response.ok)
-//                 console.log(e.checked && response.ok)
                 if ((!e.checked) && response.ok) {                                                            
                     f.style.opacity = '1'
                     await navigator.clipboard.writeText(stuff)                    
