@@ -5,7 +5,7 @@ This project was made for the sole purpose of getting img tags that can be used 
 ## How to use it
 To use this service you need:
 - A [Client ID](#imgur-client-id) that is provided by Imgur when you register an app.
-- The [Album ID](#imgur-album-id) of the album from which you want to retieve the images.
+- The [Album ID](#imgur-album-id) of the album from which you want to retrieve the images.
 
 The process for obtainig/finding the above mentioned requirements has been written below.
 
