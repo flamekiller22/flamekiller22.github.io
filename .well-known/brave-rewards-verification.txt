@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: flamekiller22.github.io
+Token: 23c91d456949ab62c443269a4624fb6e9c8a5e9ef645b251249418b58be2a7b7
