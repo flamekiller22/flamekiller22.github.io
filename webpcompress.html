@@ -164,7 +164,7 @@
             }
             var zip = new JSZip();
             var count = 0;
-            var zipFilename = 'split 99.zip';
+            var zipFilename = 'split.zip';
             info.forEach(({uri, name}) => {
                 let idx = uri.indexOf('base64,') + 'base64,'.length;
                 let data = uri.substring(idx);  
