@@ -107,7 +107,7 @@
 
             ctx.drawImage(img, 0, y, w, h)
 
-            parts.push(canvas.toDataURL('image/webp', 0.99))
+            parts.push(canvas.toDataURL('image/webp', 0.9))
             let newimg = new Image()
             newimg.src = parts[i]
             newimg.alt = `${name.slice(0, name.lastIndexOf('.'))} (part ${i+1})`
