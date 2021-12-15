@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webP compressor</title>
+    <script src="./mkquery.js"></script>
+    <style>
+        :root,
+        html {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%; 
+            height: 100%; 
+            background: linear-gradient(135deg, royalblue, springgreen);
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .custom-file-upload {
+            border: 1px solid #ccc;
+            background: #ccc;
+            display: inline-block;
+            padding: 64px 48px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        progress {
+            width: 80%;
+            max-width: 600px;
+            height: 42.0px;
+        }
+    </style>
+</head>
+<body>
+    <label class="custom-file-upload">
+        <input type="file" multiple="true" accept=".jpg, .jpeg, .png">
+        Click here to upload images!
+    </label>
+    <script>
+    
+    const input = $('input');
+    input.on('input', async (event) =>{
+        for (const _ of event.target.files) {
+            const fr = new FileReader()
+            fr.onloadend = () => {
+                const img = new Image()
+                img.onload = () => {flamemagic(img, _.name)}
+                img.src = fr.result
+            }
+            fr.readAsDataURL(_)
+        }
+    }) 
+
+    let c = 0
+
+    function flamemagic(img, name) {
+        const canvas = $('<canvas>').get(),
+        ctx = canvas.getContext('2d'),
+        parts = [];
+        const w = img.width
+        const h = img.height
+        let number_of_parts = 0
+        for (let i = 1; i <= 20; i++) {
+            if (h / i <= 4000) {
+                number_of_parts = i
+                break
+            }
+        }
+        if (number_of_parts === 0) {
+            alert('Image is too big.')
+        }
+        for (let i = 0; i < number_of_parts; i++) {
+            y = -(h / number_of_parts) * i
+            
+            canvas.width = w
+            canvas.height = h / number_of_parts
+
+            ctx.drawImage(img, 0, y, w, h)
+
+            parts.push(canvas.toDataURL('image/webp', 0.99))
+            let newimg = new Image()
+            newimg.src = parts[i]
+            newimg.alt = `${name.slice(0, name.lastIndexOf('.'))} (part ${i+1})`
+            newimg.style.display = 'none'
+            document.body.appendChild(newimg)
+        }
+        const images = $(`img[alt^="${name.slice(0, name.lastIndexOf('.'))}"]`);
+        // for (const img of images.list()) {
+        //     const link = $("<a>", {
+        //         download: `${img.alt}.webp`,
+        //         href: img.src,
+        //     })
+        //     link.click();
+        // }
+        c++
+        const prog = (100*c) / input.files.length
+        // progress.css('--size', `${100 - prog}%`)
+        progress.get().value = prog
+        if (prog >= 98) {
+            $('button').css('visibility', 'visible')
+        }
+    }
+
+    </script>
+    <script>
+        const progress = $('<progress>', {
+            max: 100,
+            value: 0
+        }).appendTo($('body'))
+
+        $('<button>', {
+                className: 'download-420'
+            }).appendTo($('body')).css('visibility', 'hidden').css('padding', '12px 24px').text('Download!')
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.1.0/jszip-utils.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script type="text/javascript">
+        const btn = document.querySelector('.download-420')
+        btn.addEventListener('click', e =>
+        {
+            e.preventDefault()
+            alert('The download may take a while to start.\nPress OK to continue.')
+            const urls = []
+            const info = []
+            document.querySelectorAll('img').forEach(e => {
+                e.download = true
+                urls.push([e.src, e.alt])
+            })
+            for (let i = 0; i < urls.length; i++) {
+                const [u, n] = urls[i]
+                info.push({'uri':u, 'name':`${n}.webp`})
+            }
+            var zip = new JSZip();
+            var count = 0;
+            var zipFilename = 'split 99.zip';
+            info.forEach(({uri, name}) => {
+                let idx = uri.indexOf('base64,') + 'base64,'.length;
+                let data = uri.substring(idx);  
+                zip.file(name, data, {base64: true});
+                count++;
+                if (count == urls.length) {
+                    zip.generateAsync({type:"blob"})
+                    .then(function (blob) {
+                            saveAs(blob, zipFilename);
+                    });
+                }
+            });
+        })
+    </script>
+</body>
+</html>
